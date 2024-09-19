@@ -1,9 +1,8 @@
 {
-  pkgs,
-  emacs-all-the-icons-fonts,
+  stdenv,
   emacsPackagesFor,
   emacs-pgtk, # Would use emacs-unstable-pgtk, but nix-community/emacs-overlay#425
-  wrapper-manager,
+  makeWrapper,
 
   # Color scheme
   callPackage,
@@ -24,7 +23,6 @@ let
 
       # === UI ===
       all-the-icons
-      emacs-all-the-icons-fonts
       doom-modeline
       (callPackage ./theme.nix { inherit colorScheme; })
 
@@ -56,20 +54,20 @@ let
     ]
   );
 in
-(wrapper-manager.lib.build {
-  inherit pkgs;
-  modules = [
-    {
-      wrappers.emacs = {
-        basePackage = emacsPackage;
-        flags = [
-          "--init-directory"
-          "${./.}"
-        ];
-      };
-    }
+stdenv.mkDerivation {
+  pname = "emacs-config";
+  version = "0.0.1";
+  src = emacsPackage;
+  nativeBuildInputs = [
+    makeWrapper
   ];
-}).overrideAttrs
-  {
-    meta.mainProgram = "emacs";
-  }
+  installPhase = ''
+    mkdir -p $out
+    cp -r $src/* $out/
+  '';
+  postFixup = ''
+    wrapProgram $out/bin/emacs \
+      --add-flags "--init-directory=${./.}"
+  '';
+  meta.mainProgram = "emacs";
+}

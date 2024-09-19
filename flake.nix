@@ -5,11 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-colors.url = "github:Misterio77/nix-colors";
 
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +29,6 @@
       packages = forEachSystem (pkgs: rec {
         default = emacs;
         emacs = pkgs.callPackage ./package.nix {
-          inherit (inputs) wrapper-manager;
           colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
         };
       });
