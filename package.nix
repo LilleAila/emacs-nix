@@ -1,7 +1,8 @@
 {
   stdenv,
+  runCommand,
   emacsPackagesFor,
-  emacs-pgtk, # Would use emacs-unstable-pgtk, but nix-community/emacs-overlay#425
+  emacs30-pgtk,
   makeWrapper,
 
   # Color scheme
@@ -9,7 +10,7 @@
   colorScheme,
 }:
 let
-  emacsPackage = (emacsPackagesFor emacs-pgtk).emacsWithPackages (
+  emacsPackage = (emacsPackagesFor emacs30-pgtk).emacsWithPackages (
     epkgs: with epkgs; [
       # === Use-package ===
       use-package
@@ -20,6 +21,7 @@ let
       counsel
       swiper
       helpful
+      elisp-refs
 
       # === UI ===
       all-the-icons
@@ -29,7 +31,7 @@ let
       # === Keybinds ===
       evil
       evil-collection
-      which-key
+      # which-key
       general
       hydra
 
@@ -46,6 +48,7 @@ let
 
       # === Languages ===
       typescript-mode
+      nix-mode
 
       # === Org-mode ===
       org
@@ -54,6 +57,16 @@ let
     ]
   );
 in
+# runCommand "emacs-config"
+#   {
+#     nativeBuildInputs = [ makeWrapper ];
+#     meta.mainProgram = "emacs";
+#   }
+#   ''
+#     cp -r ${emacsPackage} $out
+#     wrapProgram $out/bin/emacs \
+#         --add-flags "--init-directory=${./.}"
+#   ''
 stdenv.mkDerivation {
   pname = "emacs-config";
   version = "0.0.1";

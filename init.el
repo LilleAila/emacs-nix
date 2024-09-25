@@ -12,3 +12,4 @@
 (require 'config-org)
 
 (require 'config-lsp)
+(require 'config-langs)

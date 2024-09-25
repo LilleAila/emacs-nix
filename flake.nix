@@ -5,10 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-colors.url = "github:Misterio77/nix-colors";
 
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Using the emacs version from nixpkgs is good enough, i don't see a difference
+    # emacs-overlay = {
+    #   url = "github:nix-community/emacs-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
@@ -20,7 +21,7 @@
         system:
         import nixpkgs {
           inherit system;
-          overlays = [ inputs.emacs-overlay.overlays.default ];
+          # overlays = [ inputs.emacs-overlay.overlays.default ];
         }
       );
       forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
