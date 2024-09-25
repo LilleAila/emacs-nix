@@ -57,30 +57,15 @@ let
     ]
   );
 in
-# runCommand "emacs-config"
-#   {
-#     nativeBuildInputs = [ makeWrapper ];
-#     meta.mainProgram = "emacs";
-#   }
-#   ''
-#     cp -r ${emacsPackage} $out
-#     wrapProgram $out/bin/emacs \
-#         --add-flags "--init-directory=${./.}"
-#   ''
-stdenv.mkDerivation {
-  pname = "emacs-config";
-  version = "0.0.1";
-  src = emacsPackage;
-  nativeBuildInputs = [
-    makeWrapper
-  ];
-  installPhase = ''
-    mkdir -p $out
-    cp -r $src/* $out/
-  '';
-  postFixup = ''
+runCommand "emacs-config"
+  {
+    nativeBuildInputs = [ makeWrapper ];
+    meta.mainProgram = "emacs";
+  }
+  ''
+    # -s will symlink, ensuring emacsPackage is not gc-ed
+    cp -rs ${emacsPackage} $out
+    chmod -R a+w $out/* # give wrapProgram the required permissions
     wrapProgram $out/bin/emacs \
-      --add-flags "--init-directory=${./.}"
-  '';
-  meta.mainProgram = "emacs";
-}
+        --add-flags "--init-directory=${./.}"
+  ''
