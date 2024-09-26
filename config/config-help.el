@@ -4,7 +4,7 @@
   :config
   (which-key-mode 1)
   :custom
-  (which-key-idle-delay 0)
+  (which-key-idle-delay 0.1)
   (which-key-idle-secondary-delay 0))
 
 ;; === Helpful (better help buffer) ===

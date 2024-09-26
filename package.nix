@@ -1,5 +1,5 @@
 {
-  stdenv,
+  pkgs,
   runCommand,
   emacsPackagesFor,
   emacs30-pgtk,
@@ -50,6 +50,8 @@ let
       typescript-mode
       nix-mode
       markdown-mode
+      math-preview
+      pkgs.math-preview
 
       # Org-mode
       org
