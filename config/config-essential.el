@@ -11,6 +11,10 @@
 (setq custom-file (make-temp-file "emacs-custom-"))
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq user-emacs-directory "~/.local/share/emacs/") ;; Because the default --init-directory is in the nix store, it can't be written to
+
+(use-package no-littering)
+
 ;; === Disable default UI elements ===
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -35,7 +39,8 @@
 								term-mode-hook
 								shell-mode-hook
 								treemacs-mode-hook
-								eshell-mode-hook))
+								eshell-mode-hook
+                markdown-mode-hook))
 	(add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (provide 'config-essential)

@@ -12,10 +12,10 @@
 let
   emacsPackage = (emacsPackagesFor emacs30-pgtk).emacsWithPackages (
     epkgs: with epkgs; [
-      # === Use-package ===
+      # Use-package
       use-package
 
-      # === Completion ===
+      # Completion
       ivy
       ivy-rich
       counsel
@@ -23,19 +23,19 @@ let
       helpful
       elisp-refs
 
-      # === UI ===
+      # UI
       all-the-icons
       doom-modeline
       (callPackage ./theme.nix { inherit colorScheme; })
 
-      # === Keybinds ===
+      # Keybinds
       evil
       evil-collection
       # which-key
       general
       hydra
 
-      # === IDE ===
+      # IDE
       lsp-mode
       lsp-ui
       lsp-treemacs
@@ -46,15 +46,18 @@ let
       evil-nerd-commenter
       direnv
 
-      # === Languages ===
+      # Languages
       typescript-mode
       nix-mode
       markdown-mode
 
-      # === Org-mode ===
+      # Org-mode
       org
       org-bullets
       visual-fill-column
+
+      # Other
+      no-littering
     ]
   );
 in
