@@ -49,6 +49,7 @@ let
       # === Languages ===
       typescript-mode
       nix-mode
+      markdown-mode
 
       # === Org-mode ===
       org

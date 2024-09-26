@@ -1,7 +1,7 @@
 ;; === Fonts ===
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 100)
-(set-face-attribute 'variable-pitch nil :font "DejaVu Sans" :height 100 :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "DejaVu Sans" :height 120 :weight 'regular)
 
 ;; === Theme ===
 (require 'base16-nix-colors-theme)
