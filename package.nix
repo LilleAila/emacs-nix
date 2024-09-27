@@ -50,13 +50,14 @@ let
       typescript-mode
       nix-mode
       markdown-mode
-      math-preview
-      pkgs.math-preview
 
-      # Org-mode
+      # Note-taking
       org
       org-bullets
       visual-fill-column
+      math-preview
+      pkgs.math-preview
+      obsidian
 
       # Other
       no-littering
