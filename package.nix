@@ -38,7 +38,7 @@ let
       # IDE
       lsp-mode
       lsp-ui
-      lsp-treemacs
+      # lsp-treemacs
       lsp-ivy
       company
       company-box

@@ -47,6 +47,6 @@
     ("f" nil "finished" :exit t))
 
 (os/leader-keys
-    "ts" 'hydra-text-scale/body :which-key "scale text")
+    "fs" 'hydra-text-scale/body :which-key "scale text")
 
 (provide 'config-bindings)

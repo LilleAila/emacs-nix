@@ -38,7 +38,7 @@
 (dolist (mode '(org-mode-hook ;; Disable line numbers for certain modes
 								term-mode-hook
 								shell-mode-hook
-								treemacs-mode-hook
+								;; treemacs-mode-hook
 								eshell-mode-hook
                 markdown-mode-hook))
 	(add-hook mode (lambda () (display-line-numbers-mode 0))))

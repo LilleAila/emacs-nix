@@ -16,9 +16,9 @@
 	(lsp-ui-doc-position 'bottom)
 )
 
-(use-package lsp-treemacs
-	:after lsp-mode
-)
+;; (use-package lsp-treemacs
+;; 	:after lsp-mode
+;; )
 
 (use-package lsp-ivy)
 
