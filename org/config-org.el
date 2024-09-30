@@ -34,7 +34,6 @@
 
 (use-package org
   :hook (org-mode . os/org-mode-setup)
-  :mode "\\.org\\'"
   :config
   (setq org-ellipsis " ▾")
   (os/org-mode-font-setup)
@@ -108,13 +107,6 @@
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
 )
-
-;; Header bullets (same as in my nvim config)
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("󰲡" "󰲣" "󰲥" "󰲧" "󰲩" "󰲫" "󰲭")))
 
 ;; Center the editor
 (defun os/org-mode-visual-fill ()
