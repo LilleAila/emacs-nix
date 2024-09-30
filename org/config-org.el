@@ -1,9 +1,5 @@
 ;; Different font sizes for headings
 (defun os/org-mode-font-setup ()
-    (font-lock-add-keywords 'org-mode
-                            '(("^ *\\([-]\\) "
-                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
     (dolist (face '((org-level-1 . 1.2)
                     (org-level-2 . 1.1)
                     (org-level-3 . 1.05)
