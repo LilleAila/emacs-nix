@@ -53,7 +53,8 @@ let
 
       # Note-taking
       org
-      org-bullets
+      org-roam
+      org-roam-ui
       visual-fill-column
       math-preview
       pkgs.math-preview

@@ -15,3 +15,4 @@
 (require 'config-obsidian)
 
 (require 'config-org)
+(require 'config-org-roam)
