@@ -10,7 +10,9 @@
   colorScheme,
 }:
 let
-  emacsPackage = (emacsPackagesFor emacs30-pgtk).emacsWithPackages (
+  basePackage = if pkgs.hostPlatform.isDarwin then pkgs.emacs30 else pkgs.emacs30-pgtk;
+
+  emacsPackage = (emacsPackagesFor basePackage).emacsWithPackages (
     epkgs: with epkgs; [
       # Use-package
       use-package
