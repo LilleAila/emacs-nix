@@ -12,7 +12,7 @@
 
 (require 'config-lsp)
 (require 'config-langs)
-(require 'config-obsidian)
+; (require 'config-obsidian)
 
 (require 'config-org)
 (require 'config-org-roam)
